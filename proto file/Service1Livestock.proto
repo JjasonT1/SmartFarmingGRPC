@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "jt.smartFarmingService1";
+option java_outer_classname = "Service1LiveStockImpl";
+
+package service1LiveStock;
+
+service LiveStockService1 {
+
+	//unary
+	rpc getHeartRate(HeartRateRequest) returns (HeartRateResponse){}
+}
+
+message HeartRateRequest {
+	string rate = 1;
+}
+
+message HeartRateResponse {
+	double rateResponse = 1;
+}
+
