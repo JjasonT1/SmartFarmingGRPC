@@ -23,7 +23,7 @@ public class Service2ClimateClient {
 			
 			climate(channel);
 			
-			System.out.println("Resquests completed...Channel is shutting down...");
+			System.out.println("Requests completed...Channel is shutting down...");
 			channel.shutdown();
 	}
 
