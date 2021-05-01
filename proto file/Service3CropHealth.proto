@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "jt.smartFarmingService3";
+option java_outer_classname = "Service3CropHealthImpl";
+
+package service3CropHealth;
+
+service CropHealthService3 {
+
+	//server streaming
+	rpc cropHealth(cropHealthRequest) returns (stream cropHealthResponse){}
+	//client streaming
+	rpc cropInfestationLevel(stream infestationRequest) returns (infestationResponse){}
+}
+
+message health {
+	string health_condition = 1;
+}
+
+message water {
+	string water_level = 2;
+}
+
+message soil {
+	string soil_condition = 3;
+}
+
+message cropHealthRequest {
+	health health = 1;
+	water water = 2;
+	soil soil = 3;
+}
+
+message cropHealthResponse {
+	string healthResponse = 1;
+	string waterResponse = 2;
+	string soilResponse = 3;
+}
+
+
+message growth {
+	int32 growth_level = 1;
+}
+
+message infestation {
+	int32 infestation = 2;
+}
+
+message infestationRequest {
+	growth growth = 1;
+	infestation infestationLevel = 2;
+}
+
+message infestationResponse {
+	string growthResponse = 1;
+	string infestationLevelResponse = 2;
+}
