@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "jt.smartFarmingService2";
+option java_outer_classname = "Service2ClimateImpl";
+
+package service2Climate;
+
+service ClimateService2 {
+
+	//bi-directional
+	rpc climateCondition(stream ClimateRequest) returns (stream ClimateResponse){}
+}
+
+message rainfall {
+	int32 rainfall = 1;
+}
+
+message temperature {
+	int32 temperature_degree = 2;
+}
+
+message ClimateRequest {
+	rainfall rainfallRequest = 1;
+	temperature temperatureRequest = 2;
+}
+
+message ClimateResponse {
+	string rianfallResponse = 1;
+	string temperatureResponse = 2;
+}
